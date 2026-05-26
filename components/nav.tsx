@@ -42,7 +42,7 @@ export function Nav() {
         <Link
           href="/"
           aria-label="Stoonex Services home"
-          className="flex items-baseline gap-1 group"
+          className="flex items-baseline group"
         >
           <span className="display text-[28px] lg:text-[34px] tracking-tight text-ink">
             STOONE

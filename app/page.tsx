@@ -206,20 +206,32 @@ export default function Home() {
       </section>
 
       {/* ===== WHY ===== */}
-      <section className="py-24 lg:py-36 bg-ink text-cream relative overflow-hidden">
-        <div className="px-6 lg:px-10 mx-auto max-w-[1600px] relative z-10">
+      <section className="py-24 lg:py-36 text-cream relative overflow-hidden bg-forest-deep grain">
+        {/* Prairie horizon glow — warm amber + wheat-gold bleed at the bottom-right, like a Saskatchewan sunset */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 88% 100%, rgba(200,182,135,0.32) 0%, rgba(200,182,135,0.10) 35%, transparent 65%), radial-gradient(ellipse 60% 50% at 10% 0%, rgba(47,74,54,0.65) 0%, transparent 60%)",
+          }}
+        />
+        {/* Subtle wheat-color top hairline */}
+        <div aria-hidden className="absolute top-0 inset-x-0 h-px bg-gold/30 z-10" />
+
+        <div className="px-6 lg:px-10 mx-auto max-w-[1600px] relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16 lg:mb-24">
             <div className="lg:col-span-8 reveal">
-              <p className="eyebrow text-lime mb-5">Why Stoonex</p>
+              <p className="eyebrow text-gold mb-5">Why Stoonex</p>
               <h2 className="display text-[58px] lg:text-[110px] leading-[0.9]">
                 Built for the prairies.
                 <br />
-                <span className="serif-italic normal-case lowercase text-lime">
+                <span className="serif-italic normal-case lowercase text-gold">
                   detailed like a studio.
                 </span>
               </h2>
             </div>
-            <div className="lg:col-span-4 text-cream/75 reveal">
+            <div className="lg:col-span-4 text-cream/80 reveal">
               <p className="text-base lg:text-lg">
                 Three commitments on every project — no fine print, no
                 exceptions, no surprises.
@@ -227,7 +239,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-cream/10 border border-cream/10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-cream/15 border border-cream/15">
             {[
               {
                 t: "ICPI-method install",
@@ -244,80 +256,85 @@ export default function Home() {
             ].map((it, i) => (
               <div
                 key={it.t}
-                className="bg-ink p-8 lg:p-12 reveal"
+                className="bg-forest-deep/95 p-8 lg:p-12 reveal"
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="display text-lime text-3xl mb-8">0{i + 1}</div>
+                <div className="display text-gold text-3xl mb-8">0{i + 1}</div>
                 <h3 className="display text-4xl lg:text-5xl mb-5">{it.t}</h3>
-                <p className="text-cream/75 leading-relaxed">{it.d}</p>
+                <p className="text-cream/80 leading-relaxed">{it.d}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-20 lg:mt-28 grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 border-t border-cream/15 pt-14">
+          <div className="mt-20 lg:mt-28 grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-6 border-t border-cream/20 pt-14">
             <div className="text-cream">
               <div className="stat-num text-[88px] lg:text-[140px] tabular-nums">
-                250<span className="text-lime">+</span>
+                250<span className="text-gold">+</span>
               </div>
-              <div className="eyebrow text-cream/60 mt-3">Projects completed</div>
+              <div className="eyebrow text-cream/65 mt-3">Projects completed</div>
             </div>
             <div className="text-cream">
               <div className="stat-num text-[88px] lg:text-[140px] tabular-nums">
-                5<span className="text-lime">★</span>
+                5<span className="text-gold">★</span>
               </div>
-              <div className="eyebrow text-cream/60 mt-3">Average Google rating</div>
+              <div className="eyebrow text-cream/65 mt-3">Average Google rating</div>
             </div>
             <div className="text-cream">
               <div className="stat-num text-[88px] lg:text-[140px] tabular-nums">
-                10<span className="text-lime">yr</span>
+                10<span className="text-gold">yr</span>
               </div>
-              <div className="eyebrow text-cream/60 mt-3">Workmanship warranty</div>
+              <div className="eyebrow text-cream/65 mt-3">Workmanship warranty</div>
             </div>
             <div className="text-cream">
               <div className="stat-num text-[88px] lg:text-[140px] tabular-nums">
-                50<span className="text-lime">km</span>
+                50<span className="text-gold">km</span>
               </div>
-              <div className="eyebrow text-cream/60 mt-3">Service radius</div>
+              <div className="eyebrow text-cream/65 mt-3">Service radius</div>
             </div>
           </div>
         </div>
         <div
           aria-hidden
-          className="pointer-events-none select-none absolute -bottom-4 left-0 right-0 text-center display text-[18vw] leading-none text-cream/[0.045]"
+          className="pointer-events-none select-none absolute -bottom-4 left-0 right-0 text-center display text-[18vw] leading-none text-gold/[0.05] z-0"
         >
           STOONEX
         </div>
       </section>
 
       {/* ===== Portfolio strip ===== */}
-      <section className="py-24 lg:py-36 px-6 lg:px-10 mx-auto max-w-[1600px]">
-        <div className="flex items-end justify-between gap-8 mb-12">
-          <div className="reveal">
-            <p className="eyebrow text-muted mb-5">Recent Work</p>
-            <h2 className="display text-[52px] lg:text-[80px] text-ink leading-[0.95]">
-              A decade of yards,
-              <br />
-              <span className="serif-italic normal-case lowercase text-forest">walls & driveways.</span>
-            </h2>
+      <section className="py-24 lg:py-36 overflow-x-clip">
+        <div className="px-6 lg:px-10 mx-auto max-w-[1600px]">
+          <div className="flex items-end justify-between gap-8 mb-12">
+            <div className="reveal">
+              <p className="eyebrow text-muted mb-5">Recent Work</p>
+              <h2 className="display text-[52px] lg:text-[80px] text-ink leading-[0.95]">
+                A decade of yards,
+                <br />
+                <span className="serif-italic normal-case lowercase text-forest">walls & driveways.</span>
+              </h2>
+            </div>
+            <Link href="/portfolio" className="hidden md:inline-flex link-underline eyebrow text-ink">
+              All projects <ArrowRight size={14} strokeWidth={1.6} />
+            </Link>
           </div>
-          <Link href="/portfolio" className="hidden md:inline-flex link-underline eyebrow text-ink">
-            All projects <ArrowRight size={14} strokeWidth={1.6} />
-          </Link>
         </div>
 
-        <div className="flex gap-5 overflow-x-auto no-scrollbar -mx-6 px-6 pb-2 snap-x snap-mandatory">
+        <div
+          className="flex gap-5 overflow-x-auto no-scrollbar px-6 lg:px-10 pb-2 snap-x snap-proximity scroll-px-6 lg:scroll-px-10"
+          style={{ overscrollBehaviorX: "contain", overscrollBehaviorY: "auto" }}
+        >
           {projects.slice(0, 7).map((p) => (
             <Link
               key={p.slug}
               href="/portfolio"
-              className="group shrink-0 w-[80vw] sm:w-[60vw] lg:w-[420px] snap-start reveal"
+              className="group shrink-0 w-[78vw] sm:w-[55vw] lg:w-[420px] snap-start"
             >
               <div className="card-img relative aspect-[4/5]">
                 <Image
                   src={p.image}
                   alt={`${p.title} — ${p.location}`}
                   fill
-                  sizes="(min-width: 1024px) 420px, 80vw"
+                  sizes="(min-width: 1024px) 420px, 78vw"
                   className="object-cover"
                 />
                 <span className="absolute top-4 left-4 bg-cream text-ink eyebrow px-2.5 py-1">
