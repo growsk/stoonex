@@ -32,10 +32,10 @@ export function Nav() {
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-500",
+        "fixed top-0 inset-x-0 z-50 transition-all duration-400",
         scrolled
-          ? "bg-cream/90 backdrop-blur border-b border-sand"
-          : "bg-transparent"
+          ? "bg-cream/96 backdrop-blur-md border-b border-sand shadow-[0_4px_24px_-12px_rgba(15,15,15,0.22)]"
+          : "bg-cream/92 backdrop-blur-md border-b border-sand/60"
       )}
     >
       <div className="mx-auto max-w-[1600px] px-6 lg:px-10 h-16 lg:h-20 flex items-center justify-between gap-6">
@@ -88,7 +88,7 @@ export function Nav() {
 
       <div
         aria-hidden={!open}
-        className="fixed inset-0 z-[60] bg-cream transition-transform duration-500 lg:hidden"
+        className="fixed top-0 left-0 right-0 h-[100dvh] z-[60] bg-cream overflow-y-auto transition-transform duration-500 lg:hidden"
         style={{ transform: open ? "translateY(0)" : "translateY(-100%)" }}
       >
         <div className="h-16 px-6 flex items-center justify-between border-b border-sand">

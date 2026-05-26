@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="relative min-h-[100svh] flex flex-col overflow-hidden isolate">
+      <section className="relative min-h-[100svh] flex flex-col overflow-hidden isolate bg-ink">
         <div className="absolute inset-0 z-0">
           <Image
             src="/projects/yard-evening-lights.jpg"
@@ -18,40 +18,46 @@ export default function Home() {
             sizes="100vw"
             className="object-cover slow-zoom"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-cream/30 via-cream/5 to-cream pointer-events-none" />
+          {/* Editorial darkening — bottom-left strongest where text sits, fades up & right to keep image visible */}
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,15,15,0.55)_0%,rgba(15,15,15,0.35)_35%,rgba(15,15,15,0.7)_100%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_75%,rgba(15,15,15,0.5)_0%,rgba(15,15,15,0)_55%)] pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-32 lg:h-40 bg-gradient-to-b from-transparent to-cream pointer-events-none" />
         </div>
 
-        <div className="relative z-10 flex-1 flex flex-col justify-end pt-32 pb-12 lg:pb-16 px-6 lg:px-10 mx-auto max-w-[1600px] w-full">
+        <div className="relative z-10 flex-1 flex flex-col justify-end pt-32 pb-10 lg:pb-16 px-6 lg:px-10 mx-auto max-w-[1600px] w-full">
           <div className="flex items-center gap-3 mb-6">
-            <span className="kbd-circle text-ink/80">✦</span>
-            <span className="eyebrow text-ink/80">Saskatoon · Since {site.founded}</span>
+            <span className="kbd-circle text-lime">✦</span>
+            <span className="eyebrow text-lime">Saskatoon · Since {site.founded}</span>
           </div>
 
-          <h1 className="display text-[16vw] sm:text-[14vw] lg:text-[11vw] text-ink leading-[0.85] tracking-tight">
+          <h1 className="display text-[16vw] sm:text-[14vw] lg:text-[11vw] text-cream leading-[0.85] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.45)]">
             Built for
             <br />
-            the <span className="serif-italic normal-case lowercase text-forest">prairies.</span>
+            the{" "}
+            <span className="serif-italic normal-case lowercase text-lime drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)]">
+              prairies.
+            </span>
           </h1>
 
           <div className="mt-10 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 max-w-[1280px]">
-            <p className="text-lg lg:text-xl text-ink/85 max-w-xl leading-snug">
+            <p className="text-lg lg:text-xl text-cream max-w-xl leading-snug drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">
               Landscaping, fencing, paving stone, and wall stone — designed and
               installed by a single, accountable crew across Saskatoon and a
               50&nbsp;km radius.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <Link href="/contact" className="btn btn-primary">
+              <Link href="/contact" className="btn btn-lime">
                 Request a Free Quote
                 <ArrowUpRight size={16} strokeWidth={1.6} />
               </Link>
-              <Link href="/portfolio" className="btn btn-ghost">
+              <Link href="/portfolio" className="btn btn-ghost-light">
                 View Our Work
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 px-6 lg:px-10 pb-6 lg:pb-8 mx-auto max-w-[1600px] w-full grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10 border-t border-ink/15 pt-6">
+        <div className="relative z-10 px-6 lg:px-10 pb-6 lg:pb-8 mx-auto max-w-[1600px] w-full grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-10 border-t border-ink/15 pt-6">
           {[
             ["Landscaping", "Sod · Turf · Lighting"],
             ["Fencing", "Vinyl · Wood · Composite"],
@@ -59,8 +65,10 @@ export default function Home() {
             ["Wall Stone", "Retaining · Facade · Feature"],
           ].map(([t, s]) => (
             <div key={t} className="flex flex-col gap-1">
-              <span className="display text-2xl lg:text-3xl text-ink">{t}</span>
-              <span className="text-xs text-ink/70">{s}</span>
+              <span className="display text-xl sm:text-2xl lg:text-3xl text-ink">
+                {t}
+              </span>
+              <span className="text-[11px] sm:text-xs text-ink/70">{s}</span>
             </div>
           ))}
         </div>
