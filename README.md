@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stoonex Services — stoonex.com
 
-## Getting Started
+Premium landscaping, fencing, paving, and wall-stone contractor website.
+Built with Next.js 16 (App Router), Tailwind v4, Resend, deployed on Vercel.
 
-First, run the development server:
+## Stack
+- **Framework:** Next.js 16.2 (App Router, Turbopack)
+- **Styles:** Tailwind v4 (cream + forest green + lime palette)
+- **Fonts:** Bebas Neue (display), Instrument Serif (italic accents), Inter (body)
+- **Email:** Resend → structocontracting@gmail.com
+- **Hosting:** Vercel
+- **DNS:** Cloudflare (stoonex.com + stoonexservices.ca)
 
+## Run locally
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # fill in RESEND_API_KEY
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
+```
+RESEND_API_KEY=re_xxxxx
+RESEND_FROM="Stoonex Website <hello@stoonex.com>"
+RESEND_TO=structocontracting@gmail.com
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to Vercel
+```bash
+# one-time
+npx vercel link
+# subsequent
+npx vercel --prod
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Cloudflare DNS (stoonex.com & stoonexservices.ca)
+Point both to Vercel:
+- `A` record: @ → 76.76.21.21
+- `CNAME`:    www → cname.vercel-dns.com
 
-## Learn More
+In Vercel project settings, add stoonex.com as primary and stoonexservices.ca
+with a permanent 308 redirect to stoonex.com.
 
-To learn more about Next.js, take a look at the following resources:
+## Content
+- All site copy and project data lives in `lib/site.ts`
+- Real project photos in `public/projects/`
+- Service detail pages auto-generate from `services` array
+- Service area pages auto-generate from `serviceAreas` array
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## SEO
+- LocalBusiness JSON-LD in `app/layout.tsx`
+- Per-page metadata, OG images, sitemap.xml, robots.txt
+- Dynamic OG image generator at `/opengraph-image.tsx`
+- Service + area pages emit Service JSON-LD
